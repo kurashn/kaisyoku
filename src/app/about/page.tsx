@@ -28,17 +28,17 @@ export default function AboutPage() {
                     <span className="text-main font-bold tracking-widest text-sm uppercase">PHILOSOPHY</span>
                     <h2 className="text-3xl font-serif font-bold mt-2 text-navy-950 dark:text-white">なぜ「会食」に特化するのか</h2>
                 </div>
-                <div className="prose prose-lg mx-auto text-navy-700 dark:text-navy-200">
-                    <p>
+                <div className="mx-auto max-w-3xl text-lg text-navy-700 dark:text-navy-200">
+                    <p className="mb-10 leading-loose">
                         重要な商談、謝罪、顔合わせ。人生やビジネスを左右する場面で、店選びの失敗は許されません。
                     </p>
-                    <p>
+                    <p className="mb-10 leading-loose">
                         しかし、既存のグルメサイトは「味」や「映え」ばかりを強調し、幹事が本当に知りたい情報。
                     </p>
-                    <p>
+                    <p className="mb-10 leading-loose">
                         「隣の席の声は聞こえないか？」「個室は本当に密室か？」「アレルギー対応は完璧か？」は、実際に行ってみるまで分かりませんでした。
                     </p>
-                    <p>
+                    <p className="leading-loose">
                         Kaisyokuは、そんな「不確実性」を排除するために生まれました。私たちは味だけでなく、「環境」と「リスク管理」を徹底的に審査し、
                         幹事様が枕を高くして眠れるような、絶対的な安心を提供します。
                     </p>
