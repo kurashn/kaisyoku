@@ -7,7 +7,8 @@ export default function AboutPage() {
 
             {/* Hero Section */}
             <section className="bg-navy-950 py-24 text-center text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550966871-3ed3c47e7421?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-40"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/50 to-navy-950/80"></div>
                 <div className="relative z-10 container mx-auto px-4">
                     <h1 className="text-3xl md:text-5xl font-serif font-bold mb-6">
                         失敗できない幹事様へ。<br />
