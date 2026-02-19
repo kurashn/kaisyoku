@@ -64,27 +64,42 @@ export default function AboutPage() {
                             {
                                 title: "完全個室の保証",
                                 icon: ShieldCheck,
+                                image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800",
                                 desc: "天井まで壁があり、出入り口に扉がある「完全個室」のみ。カーテン仕切りや、半個室は除外します。"
                             },
                             {
                                 title: "静音性の審査",
                                 icon: MicOffIcon,
+                                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800",
                                 desc: "隣室の会話内容が聞き取れないレベルの防音性を確認。BGMの音量もビジネス会話を妨げない基準で行います。"
                             },
                             {
                                 title: "接客のプロ意識",
                                 icon: HeartHandshake,
+                                image: "https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&q=80&w=800",
                                 desc: "会話の間を読んだ配膳、上座・下座の理解、領収書のスマートな受け渡しなど、接待マナーを熟知しているか。"
                             }
                         ].map((item, i) => (
-                            <div key={i} className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-main dark:bg-navy-800">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <span className="bg-main/10 text-main p-1 rounded">0{i + 1}</span>
-                                    {item.title}
-                                </h3>
-                                <p className="text-navy-700 leading-relaxed dark:text-navy-300">
-                                    {item.desc}
-                                </p>
+                            <div key={i} className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1 dark:bg-navy-800">
+                                <div className="h-48 w-full overflow-hidden">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                </div>
+                                <div className="relative p-6 pt-12">
+                                    <div className="absolute -top-8 left-6 flex h-16 w-16 items-center justify-center rounded-full bg-main text-white shadow-lg border-4 border-slate-50 dark:border-navy-900">
+                                        <item.icon className="h-8 w-8" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-3 flex items-center gap-2 text-navy-950 dark:text-white">
+                                        <span className="text-sm font-normal text-main opacity-70">0{i + 1}.</span>
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-navy-700 leading-relaxed dark:text-navy-300 text-sm">
+                                        {item.desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>

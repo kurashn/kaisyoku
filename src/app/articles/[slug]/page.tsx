@@ -89,7 +89,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                         <div className="lg:col-span-8">
                             <div className="bg-white rounded-xl shadow-sm p-8 md:p-12 mb-12 dark:bg-navy-900 border border-gray-100 dark:border-navy-800">
                                 {/* Lead Text */}
-                                <div className="bg-navy-50/50 p-6 rounded-lg mb-12 border-l-4 border-gold-500 dark:bg-navy-950">
+                                <div className="mb-12">
                                     <p className="text-navy-800 font-medium leading-loose dark:text-navy-100">
                                         重要な接待や会食で「お店選び」に失敗したくない幹事様必見。<br />
                                         現地のリアルな騒音レベルから、個室の防音性、接客の質まで、Kaisyoku編集部が徹底的に調査しました。
