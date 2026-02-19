@@ -118,9 +118,9 @@ export function CategorySidebar() {
     return (
         <div className="mt-8 space-y-8">
             {/* Search Categories */}
-            <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-navy-900">
+            <div className="rounded-lg bg-navy-900 p-6 shadow-sm md:bg-white dark:bg-navy-900">
                 <div className="mb-5 flex items-center justify-between">
-                    <h3 className="font-serif text-base font-bold text-navy-950 dark:text-white border-l-4 border-navy-300 pl-3">
+                    <h3 className="font-serif text-base font-bold text-white md:text-navy-950 dark:text-white border-l-4 border-navy-300 pl-3">
                         お店を探す
                     </h3>
                     <span className="text-[10px] font-bold tracking-widest text-navy-400 opacity-50">SEARCH</span>
@@ -128,7 +128,7 @@ export function CategorySidebar() {
 
                 <div className="flex flex-col">
                     {searchCategories.map((cat, i) => (
-                        <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-50 py-3 text-sm font-medium text-navy-700 transition-all hover:border-main hover:text-main dark:border-navy-800 dark:text-navy-300">
+                        <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-800 py-3 text-sm font-medium text-navy-300 transition-all hover:border-main hover:text-main md:border-navy-50 md:text-navy-700 dark:border-navy-800 dark:text-navy-300">
                             <span className="flex items-center">
                                 <cat.icon className="mr-3 h-4 w-4 text-navy-300 transition-colors group-hover:text-main" />
                                 {cat.name}
@@ -142,9 +142,9 @@ export function CategorySidebar() {
             </div>
 
             {/* Knowledge Categories */}
-            <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-navy-900">
+            <div className="rounded-lg bg-navy-900 p-6 shadow-sm md:bg-white dark:bg-navy-900">
                 <div className="mb-5 flex items-center justify-between">
-                    <h3 className="font-serif text-base font-bold text-navy-950 dark:text-white border-l-4 border-gold-500 pl-3">
+                    <h3 className="font-serif text-base font-bold text-white md:text-navy-950 dark:text-white border-l-4 border-gold-500 pl-3">
                         知識で武装する
                     </h3>
                     <span className="text-[10px] font-bold tracking-widest text-navy-400 opacity-50">KNOWLEDGE</span>
@@ -152,7 +152,7 @@ export function CategorySidebar() {
 
                 <div className="flex flex-col">
                     {knowledgeCategories.map((cat, i) => (
-                        <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-50 py-3 text-sm font-medium text-navy-700 transition-all hover:border-gold-500 hover:text-gold-600 dark:border-navy-800 dark:text-navy-300">
+                        <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-800 py-3 text-sm font-medium text-navy-300 transition-all hover:border-gold-500 hover:text-gold-600 md:border-navy-50 md:text-navy-700 dark:border-navy-800 dark:text-navy-300">
                             <span className="flex items-center">
                                 <cat.icon className="mr-3 h-4 w-4 text-navy-300 transition-colors group-hover:text-gold-500" />
                                 {cat.name}

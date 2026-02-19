@@ -21,10 +21,10 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 text-center">
           <div className="animate-fade-in-up inline-block mb-6 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-navy-100 backdrop-blur-md">
-            <span className="mr-2 text-main">●</span> 失敗できない幹事様のための「セーフティネット」
+            <span className="mr-2 text-main">●</span> 失敗できない幹事様のためのサイト
           </div>
 
-          <h1 className="animate-fade-in-up delay-100 mb-8 font-serif text-3xl font-bold tracking-tight leading-tight md:text-5xl lg:text-6xl">
+          <h1 className="animate-fade-in-up delay-100 mb-8 font-serif text-4xl font-bold tracking-tight leading-tight md:text-5xl lg:text-6xl">
             もう、店選びで<br className="md:hidden" />
             <span className="relative inline-block">
               <span className="relative z-10 text-main">失敗</span>
@@ -34,8 +34,9 @@ export default function Home() {
           </h1>
 
           <p className="animate-fade-in-up delay-200 mx-auto mb-12 max-w-2xl text-lg text-navy-100 md:text-xl leading-relaxed font-medium">
-            「静かさ」も「細かな要望」も、あなたの基準で選べる。<br />
-            ビジネスの成否を分ける<span className="text-white border-b border-main/50 pb-1">「完全個室・静音保証」</span>の厳選リスト。<br className="md:hidden" />
+            「静かさ」も「細かな要望」も、<br className="md:hidden" />あなたの基準で選べる。<br />
+            ビジネスの成否を分ける<br className="md:hidden" />
+            <span className="text-white border-b border-main/50 pb-1">「完全個室・静音保証」</span>の厳選リスト。<br className="md:hidden" />
           </p>
 
           {/* New Search UI (Mock) */}
@@ -62,13 +63,13 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Feature Section (New) */}
-      <FeatureSection />
+      < FeatureSection />
 
       {/* Problem Agitation */}
-      <section className="bg-navy-50 py-20 dark:bg-navy-900">
+      < section className="bg-navy-50 py-20 dark:bg-navy-900" >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="text-main text-xs font-bold tracking-widest uppercase">RISK MANAGEMENT</span>
@@ -93,16 +94,16 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Trust Section (New) */}
-      <TrustSection />
+      < TrustSection />
 
       {/* Scene Navigation (New) */}
-      <SceneNavigation />
+      < SceneNavigation />
 
       {/* Article List (Magazine Layout) */}
-      <section className="py-12 bg-white dark:bg-navy-950">
+      < section className="py-12 bg-white dark:bg-navy-950" >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
 
@@ -143,17 +144,17 @@ export default function Home() {
 
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Solution/CTA */}
-      <section className="bg-navy-900 py-20 text-white">
+      < section className="bg-navy-900 py-20 text-white" >
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-6 font-serif text-3xl font-bold">
-            もう、会食で冷や汗をかかない。
+            もう、会食で<br className="md:hidden" />冷や汗をかかない。
           </h2>
           <p className="mb-8 text-lg text-navy-200">
-            Kaisyokuアプリなら、アレルギー事前確認も、<br />
-            「本当に静かな個室」の予約も、すべてスマホひとつで完結。
+            Kaisyokuアプリなら、<br className="md:hidden" />アレルギー事前確認も、<br className="hidden" />
+            「本当に静かな個室」の予約も、<br />すべてスマホひとつで完結。
           </p>
           <ul className="mx-auto mb-10 max-w-md space-y-3 text-left">
             {[
@@ -171,7 +172,7 @@ export default function Home() {
             今すぐアプリをダウンロード
           </Button>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }
