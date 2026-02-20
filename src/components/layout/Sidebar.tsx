@@ -59,13 +59,9 @@ export function RankingSidebar() {
             image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=200"
         },
         {
-            title: "「アレルギー確認」のメール文面テンプレート【コピペOK】",
+            title: "絶対に失敗しない！会食での「上座・下座」完全マニュアル",
             image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=200"
-        },
-        {
-            title: "東京駅周辺・ランチ会食（3000円〜）おすすめリスト",
-            image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=200"
-        },
+        }
     ];
 
     return (

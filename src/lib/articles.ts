@@ -94,52 +94,93 @@ export const articles: Article[] = [
     `
   },
   {
-    title: "「アレルギー確認」のメール文面テンプレート【コピペOK】",
-    excerpt: "失礼にならないアレルギー確認の聞き方とは？ビジネスメールで使える定型文と、返信がない時の催促方法。",
-    slug: "allergy-check-email-template",
+    title: "絶対に失敗しない！会食での「上座・下座」完全マニュアル",
+    excerpt: "円卓、タクシー、エレベーター...迷いやすい座次ルールの基本と、例外ケースのスマートな対応方法。",
+    slug: "dining-manners-seating-rules",
     category: "会食マナー",
     categorySlug: "manners",
     imageUrl: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=800",
     location: "マナー・知識",
-    features: ["アレルギー対応", "テンプレート"],
-    publishedAt: "2024-02-09",
+    features: ["上座・下座", "タクシー", "エレベーター"],
+    publishedAt: "2024-02-15",
     content: `
-      < h2 > 聞かないとリスク、聞くのも気を使う...</h2>
-      < p > アレルギー確認は必須ですが、「好き嫌いありますか？」と聞くのはスマートではありません。</p>
-  < h3 > 基本のテンプレート </h3>
-  < pre class= "bg-gray-100 p-4 rounded text-sm overflow-x-auto" >
-  件名：【ご確認】○○様とのご会食について
+      <h2>「上座・下座」はビジネスの基本中の基本</h2>
+      <p>会食において、席次は相手への敬意を示す最も重要な要素の一つです。間違えれば一瞬で信頼を失うリスクがあります。<br>ここでは、基本ルールから迷いやすいシチュエーションまで、完全網羅して解説します。</p>
 
-○○様
+      <h2>1. 基本的なルール</h2>
+      <p>大原則として、<strong>「出入口から最も遠い席が上座」「最も近い席が下座」</strong>となります。これはどの空間でも共通する考え方です。</p>
 
-いつも大変お世話になっております。
-○○株式会社の山田でございます。
+      <h2>2. 迷いやすいケース別対応</h2>
+      <ul>
+        <li><strong>景色が良い部屋</strong>：大原則よりも「景色がよく見える席」を上座とするケースがあります。臨機応変に対応しましょう。</li>
+        <li><strong>円卓の場合</strong>：入口から最も遠い席が上座、以降は上座から見て「左→右→左→右...」の順に座ります。</li>
+        <li><strong>タクシーの場合</strong>：運転席の後ろが上座、助手席の後ろ、後部座席の中央、助手席が下座となります。</li>
+        <li><strong>エレベーターの場合</strong>：操作盤の前が下座。奥が上座となります。</li>
+      </ul>
 
-来週の日程で調整しております会食につきまして、
-お店の予約にあたり、事前にアレルギーや苦手な食材について
-お伺いできればと存じます。
-
-もしございましたら、配慮したお店を選定いたしますので、
-ご遠慮なくお申し付けくださいませ。
-
-簡単ではございますが、ご確認のほどよろしくお願いいたします。
-</pre>
-  `
+      <h2>3. 重要なのは「臨機応変」な気遣い</h2>
+      <p>ルールは基本ですが、時には「相手が最も心地よい席」を選ぶことが最優先です。空調の風が直接当たる席や、外の景色を楽しみたいゲストへの配慮など、マニュアルに捉われない「おもてなしの心」が成功の鍵となります。</p>
+    `
   },
   {
-    title: "東京駅周辺・ランチ会食（3000円〜）おすすめリスト",
-    excerpt: "新幹線の時間まで1時間。サクッと、でも失礼のないランチ会食ができる東京駅近のお店まとめ。",
-    slug: "tokyo-station-lunch-meeting",
-    category: "エリアガイド",
-    categorySlug: "area",
-    imageUrl: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800",
-    location: "東京駅・丸の内",
-    features: ["ランチ", "駅近", "Wifi"],
-    publishedAt: "2024-02-08",
+    title: "【特集】AI時代に生き残るビジネスパーソンの「人間力」",
+    excerpt: "テクノロジーが進化するほど、泥臭い「会食」の価値が上がっている理由を探る。",
+    slug: "special-ai-human-connection",
+    category: "特集記事",
+    categorySlug: "special",
+    imageUrl: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+    location: "コラム",
+    features: ["特集", "AI活用", "ビジネススキル"],
+    publishedAt: "2024-02-18",
     content: `
-  < h2 > 時間は短く、質は高く </h2>
-    < p > 東京駅周辺でのランチ会食は「スピード」と「質の担保」の両立が求められます。</p>
-      `
+      <h2>なぜ今、会食なのか？</h2>
+      <p>業務連絡はツールで完結し、商談すらオンラインで済む時代。だからこそ、わざわざ時間を共有し、共に食事をする「会食」は、テキストには乗らない「人間性」を確認し合う究極のアナログフィルターとなっています。</p>
+    `
+  },
+  {
+    title: "接待で使える！絶対外さない「手土産」リスト2024",
+    excerpt: "常温保存可、日持ちする、かさばらない。三拍子揃ったエグゼクティブ向けの手土産を厳選。",
+    slug: "excellent-business-gifts",
+    category: "準備・ツール",
+    categorySlug: "tools",
+    imageUrl: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=800",
+    location: "準備",
+    features: ["手土産", "常温", "日持ち"],
+    publishedAt: "2024-02-17",
+    content: `
+      <h2>手土産は「渡した後」まで想像する</h2>
+      <p>相手が電車で帰るのか、運転手付きの車なのか。家族構成はどうか。手土産一つで、あなたの「想像力」が試されています。</p>
+    `
+  },
+  {
+    title: "【シーン別】絶対に失敗できない「顔合わせ」進行マニュアル",
+    excerpt: "両家顔合わせの店選びから、当日の進行、話題作りのコツまで。",
+    slug: "scene-family-meeting-guide",
+    category: "シーンから探す",
+    categorySlug: "scene",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+    location: "ノウハウ",
+    features: ["顔合わせ", "進行", "話題作り"],
+    publishedAt: "2024-02-16",
+    content: `
+      <h2>ビジネス以上の緊張感</h2>
+      <p>「顔合わせ」は一生に一度の重要なイベントです。和やかで品のある空間作りが求められます。</p>
+    `
+  },
+  {
+    title: "「ドタキャン」された時の完全リカバリー術",
+    excerpt: "会食当日の突然のキャンセル。店への連絡、相手へのフォロー、キャンセル料の扱いを解説。",
+    slug: "trouble-sudden-cancellation",
+    category: "トラブル回避",
+    categorySlug: "trouble",
+    imageUrl: "https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&q=80&w=800",
+    location: "対応策",
+    features: ["ドタキャン対応", "キャンセル料", "フォロー"],
+    publishedAt: "2024-02-14",
+    content: `
+      <h2>ピンチはチャンスになる</h2>
+      <p>トラブル時のスマートな対応こそが、ビジネスパーソンとしての器を示します。決して感情的にならず、機械的かつ丁寧に処理しましょう。</p>
+    `
   }
 ];
 
