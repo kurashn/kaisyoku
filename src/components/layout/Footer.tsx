@@ -20,8 +20,6 @@ export function Footer() {
                     <div>
                         <h3 className="font-bold text-main mb-4">コンテンツ</h3>
                         <ul className="space-y-2 text-sm text-navy-300">
-                            <li><Link href="/category/area" className="hover:text-white">エリア検索</Link></li>
-                            <li><Link href="/category/scene" className="hover:text-white">シーン別検索</Link></li>
                             <li><Link href="/articles" className="hover:text-white">新着記事一覧</Link></li>
                         </ul>
                     </div>

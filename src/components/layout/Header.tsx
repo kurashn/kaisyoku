@@ -27,8 +27,6 @@ export function Header() {
     }, [isMenuOpen]);
 
     const navItems = [
-        { label: 'エリア', href: '/category/area', sub: 'Area' },
-        { label: '目的・シーン', href: '/category/scene', sub: 'Scene' },
         { label: '記事一覧', href: '/articles', sub: 'Articles' },
         { label: '会食マナー', href: '/category/manners', sub: 'Manners' },
         { label: '掲載基準・アレルギー', href: '/about', sub: 'Standard & Allergy' },

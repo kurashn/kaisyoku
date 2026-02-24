@@ -4,11 +4,10 @@ import { ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { Ban } from "lucide-react";
 import { articles } from "@/lib/articles";
-import { SearchSidebar, RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
+import { RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
 
 import { TrustSection } from "@/components/home/TrustSection";
 import { FeatureSection } from "@/components/home/FeatureSection";
-import { SceneNavigation } from "@/components/home/SceneNavigation";
 
 export default function Home() {
 
@@ -39,29 +38,7 @@ export default function Home() {
             <span className="text-white border-b border-main/50 pb-1">「完全個室・静音保証」</span>の厳選リスト。<br className="md:hidden" />
           </p>
 
-          {/* New Search UI (Mock) */}
-          <div className="animate-fade-in-up delay-300 mx-auto mb-12 flex max-w-3xl flex-col gap-2 rounded-xl bg-white/10 p-2 backdrop-blur-md md:flex-row md:rounded-full md:p-1.5 shadow-2xl shadow-black/20">
-            <div className="flex-1 rounded-lg md:rounded-l-full bg-white px-6 py-3 text-left text-navy-900 shadow-sm">
-              <span className="block text-xs font-bold text-navy-400">エリア</span>
-              <span className="text-sm font-medium text-navy-700">新宿・丸の内・六本木...</span>
-            </div>
-            <div className="flex-1 rounded-lg bg-white px-6 py-3 text-left text-navy-900 shadow-sm">
-              <span className="block text-xs font-bold text-navy-400">シーン</span>
-              <span className="text-sm font-medium text-navy-700">接待・謝罪・顔合わせ...</span>
-            </div>
-            <Button size="lg" className="rounded-lg md:rounded-r-full shadow-lg shadow-main/20 md:w-auto h-auto py-3 md:py-0">
-              リスクなしのお店を探す
-            </Button>
-          </div>
 
-          <div className="animate-fade-in-up delay-400 mt-8 flex flex-wrap justify-center gap-3 text-sm text-navy-200">
-            <span className="font-serif py-1">注目のキーワード：</span>
-            {["新宿 個室", "顔合わせ", "東京駅 ランチ", "アレルギー対応", "静かな店"].map((keyword, i) => (
-              <Link key={i} href="#" className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-navy-100 transition-all hover:bg-white hover:text-navy-900">
-                #{keyword}
-              </Link>
-            ))}
-          </div>
         </div>
       </section >
 
@@ -99,9 +76,6 @@ export default function Home() {
       {/* Trust Section (New) */}
       < TrustSection />
 
-      {/* Scene Navigation (New) */}
-      < SceneNavigation />
-
       {/* Article List (Magazine Layout) */}
       < section className="py-12 bg-white dark:bg-navy-950" >
         <div className="container mx-auto px-4">
@@ -137,7 +111,6 @@ export default function Home() {
 
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-8">
-              <SearchSidebar />
               <RankingSidebar />
               <CategorySidebar />
             </aside>

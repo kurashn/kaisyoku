@@ -1,56 +1,5 @@
-import { Button } from "@/components/ui/Button";
-import { ArrowRight, Trophy, Search, Tag, MapPin, Utensils, Wallet, BookOpen, Sparkles, ShieldCheck, Wrench } from "lucide-react";
+import { BookOpen, ShieldCheck, Wrench } from "lucide-react";
 import Link from "next/link";
-
-export function SearchSidebar() {
-    return (
-        <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-navy-900">
-            <div className="mb-5 flex items-center justify-between">
-                <h3 className="font-serif text-base font-bold text-navy-950 dark:text-white border-l-4 border-main pl-3">
-                    お店を探す
-                </h3>
-                <span className="text-[10px] font-bold tracking-widest text-navy-400 opacity-50">SEARCH</span>
-            </div>
-
-            <div className="space-y-4">
-                <div>
-                    <label className="mb-1.5 block text-xs font-bold text-navy-600 dark:text-navy-300">エリア</label>
-                    <div className="relative">
-                        <select className="w-full appearance-none rounded-md border border-navy-200 bg-navy-50 px-4 py-2.5 text-sm font-medium text-navy-700 focus:border-main focus:outline-none focus:ring-1 focus:ring-main dark:border-navy-700 dark:bg-navy-800 dark:text-white">
-                            <option>エリアを選択...</option>
-                            <option>新宿</option>
-                            <option>丸の内</option>
-                            <option>六本木</option>
-                            <option>銀座</option>
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-navy-500">
-                            <ArrowRight className="h-4 w-4 rotate-90" />
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label className="mb-1.5 block text-xs font-bold text-navy-600 dark:text-navy-300">シーン</label>
-                    <div className="relative">
-                        <select className="w-full appearance-none rounded-md border border-navy-200 bg-navy-50 px-4 py-2.5 text-sm font-medium text-navy-700 focus:border-main focus:outline-none focus:ring-1 focus:ring-main dark:border-navy-700 dark:bg-navy-800 dark:text-white">
-                            <option>シーンを選択...</option>
-                            <option>接待・会食</option>
-                            <option>顔合わせ</option>
-                            <option>謝罪</option>
-                            <option>お祝い</option>
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-navy-500">
-                            <ArrowRight className="h-4 w-4 rotate-90" />
-                        </div>
-                    </div>
-                </div>
-                <Button className="mt-2 w-full py-6 font-bold tracking-widest shadow-lg shadow-main/10">
-                    <Search className="mr-2 h-4 w-4" />
-                    検索する
-                </Button>
-            </div>
-        </div>
-    );
-}
 
 export function RankingSidebar() {
     const ranks = [
@@ -99,44 +48,14 @@ export function RankingSidebar() {
 }
 
 export function CategorySidebar() {
-    const searchCategories = [
-        { name: "エリアから探す", slug: "area", count: 12, icon: MapPin },
-        { name: "シーンから探す", slug: "scene", count: 8, icon: Utensils },
-        { name: "特集記事", slug: "special", count: 3, icon: Sparkles }
-    ];
-
     const knowledgeCategories = [
         { name: "マナー・振る舞い", slug: "manners", count: 10, icon: BookOpen },
         { name: "トラブル回避", slug: "trouble", count: 5, icon: ShieldCheck },
-        { name: "準備・ツール", slug: "tools", count: 4, icon: Wrench } // Wrench or PenTool
+        { name: "準備・ツール", slug: "tools", count: 4, icon: Wrench }
     ];
 
     return (
-        <div className="mt-8 space-y-8">
-            {/* Search Categories */}
-            <div className="rounded-lg bg-navy-900 p-6 shadow-sm md:bg-white dark:bg-navy-900">
-                <div className="mb-5 flex items-center justify-between">
-                    <h3 className="font-serif text-base font-bold text-white md:text-navy-950 dark:text-white border-l-4 border-navy-300 pl-3">
-                        お店を探す
-                    </h3>
-                    <span className="text-[10px] font-bold tracking-widest text-navy-400 opacity-50">SEARCH</span>
-                </div>
-
-                <div className="flex flex-col">
-                    {searchCategories.map((cat, i) => (
-                        <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-800 py-3 text-sm font-medium text-navy-300 transition-all hover:border-main hover:text-main md:border-navy-50 md:text-navy-700 dark:border-navy-800 dark:text-navy-300">
-                            <span className="flex items-center">
-                                <cat.icon className="mr-3 h-4 w-4 text-navy-300 transition-colors group-hover:text-main" />
-                                {cat.name}
-                            </span>
-                            <span className="text-xs text-navy-400 group-hover:text-main">
-                                {cat.count}
-                            </span>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-
+        <div className="mt-8">
             {/* Knowledge Categories */}
             <div className="rounded-lg bg-navy-900 p-6 shadow-sm md:bg-white dark:bg-navy-900">
                 <div className="mb-5 flex items-center justify-between">

@@ -1,6 +1,6 @@
 import { articles } from "@/lib/articles";
 import { ArticleCard } from "@/components/article/ArticleCard";
-import { SearchSidebar, RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
+import { RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 
@@ -52,7 +52,6 @@ export default function ArticlesPage() {
 
                     {/* Sidebar */}
                     <aside className="lg:col-span-4 space-y-8">
-                        <SearchSidebar />
                         <RankingSidebar />
                         <CategorySidebar />
                     </aside>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { MapPin, Calendar, ArrowLeft, Clock, CheckCircle, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { SearchSidebar, RankingSidebar, CategorySidebar } from '@/components/layout/Sidebar';
+import { RankingSidebar, CategorySidebar } from '@/components/layout/Sidebar';
 
 // Correct type definition for Next.js 15
 type Params = Promise<{ slug: string }>;
@@ -133,8 +133,6 @@ export default async function ArticlePage({ params }: { params: Params }) {
                                     </div>
                                 </div>
                             </div>
-
-                            <SearchSidebar />
 
                             {/* CTA Card */}
                             <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-navy-900 to-navy-800 p-8 text-white shadow-xl">
