@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
             <article>
                 {/* Hero Section */}
-                <div className="relative h-[50vh] min-h-[400px] w-full bg-navy-900">
+                <div className="relative h-[60vh] min-h-[500px] w-full bg-navy-900">
                     <Image
                         src={article.imageUrl}
                         alt={article.title}
@@ -54,7 +54,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/40 to-transparent"></div>
 
-                    <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 z-10">
+                    <div className="absolute bottom-0 left-0 w-full p-6 pt-32 md:p-12 z-10">
                         <div className="container mx-auto max-w-6xl">
                             <div className="mb-6 flex flex-wrap gap-3 animate-fade-in-up">
                                 <span className="inline-flex items-center rounded-full bg-gold-500 px-4 py-1.5 text-xs font-bold text-white shadow-lg shadow-gold-500/20">
@@ -68,7 +68,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                                 ))}
                             </div>
 
-                            <h1 className="animate-fade-in-up delay-100 mb-6 text-3xl font-serif font-bold leading-tight text-white md:text-5xl lg:text-6xl drop-shadow-sm">
+                            <h1 className="animate-fade-in-up delay-100 mb-6 text-2xl font-serif font-bold leading-tight text-white md:text-4xl lg:text-5xl drop-shadow-sm max-w-4xl">
                                 {article.title}
                             </h1>
 
