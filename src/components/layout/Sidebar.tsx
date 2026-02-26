@@ -54,7 +54,7 @@ export async function CategorySidebar() {
     // Map WP categories to include icons and fallback data
     const categories = rawCategories.map((cat: any) => {
         let icon = Hash;
-        if (cat.slug === 'manners') icon = BookOpen;
+        if (cat.slug === 'kaishoku-manner') icon = BookOpen;
         if (cat.slug === 'trouble') icon = ShieldCheck;
         if (cat.slug === 'tools') icon = Wrench;
 
