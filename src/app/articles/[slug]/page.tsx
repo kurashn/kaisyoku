@@ -40,18 +40,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                 </div>
             )}
 
-            {/* Breadcrumbs */}
-            <div className="bg-white border-b border-gray-100 py-3 dark:bg-navy-900 dark:border-navy-800">
-                <div className="container mx-auto px-4">
-                    <div className="flex items-center text-xs text-navy-500 dark:text-navy-300">
-                        <Link href="/" className="hover:text-main transition-colors">TOP</Link>
-                        <span className="mx-2 text-gray-300">/</span>
-                        <Link href="#" className="hover:text-main transition-colors">記事一覧</Link>
-                        <span className="mx-2 text-gray-300">/</span>
-                        <span className="text-navy-800 dark:text-white truncate max-w-[200px] sm:max-w-none">{article.title}</span>
-                    </div>
-                </div>
-            </div>
+
 
             <article>
                 {/* Hero Section */}
@@ -97,8 +86,21 @@ export default async function ArticlePage({ params }: { params: Params }) {
                     </div>
                 </div>
 
+                {/* Breadcrumbs */}
+                <div className="bg-white border-b border-gray-100 py-3 dark:bg-navy-900 dark:border-navy-800">
+                    <div className="container mx-auto px-4 max-w-7xl">
+                        <div className="flex items-center text-xs text-navy-500 dark:text-navy-300">
+                            <Link href="/" className="hover:text-main transition-colors">TOP</Link>
+                            <span className="mx-2 text-gray-300">/</span>
+                            <Link href="#" className="hover:text-main transition-colors">記事一覧</Link>
+                            <span className="mx-2 text-gray-300">/</span>
+                            <span className="text-navy-800 dark:text-white truncate max-w-[200px] sm:max-w-none">{article.title}</span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Content */}
-                <div className="container mx-auto px-4 py-12 lg:py-20 max-w-7xl">
+                <div className="container mx-auto px-4 py-8 lg:py-16 max-w-7xl">
                     <div className="grid gap-12 lg:grid-cols-12">
                         {/* Main Content */}
                         <div className="lg:col-span-8">

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
@@ -11,6 +12,9 @@ export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const pathname = usePathname();
+    const isTopPage = pathname === '/';
+    const isTranslucentHeader = isTopPage && !isScrolled;
 
     useEffect(() => {
         setMounted(true);
@@ -54,7 +58,7 @@ export function Header() {
                     <div className="bg-main text-white p-1.5 rounded flex items-center justify-center transition-transform group-hover:scale-105">
                         <Logo className="h-5 w-5" />
                     </div>
-                    <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-navy-900 dark:text-white' : 'text-white'}`}>
+                    <span className={`text-xl font-bold tracking-tight ${!isTranslucentHeader ? 'text-navy-900 dark:text-white' : 'text-white'}`}>
                         Kaisyoku
                     </span>
                 </Link>
@@ -67,7 +71,7 @@ export function Header() {
                             href={item.href}
                             className="group relative flex flex-col items-center justify-center py-1"
                         >
-                            <span className="text-sm font-bold text-navy-700 transition-colors group-hover:text-main dark:text-navy-200 dark:group-hover:text-gold-400">
+                            <span className={`text-sm font-bold transition-colors ${!isTranslucentHeader ? 'text-navy-700 group-hover:text-main dark:text-navy-200 dark:group-hover:text-gold-400' : 'text-white/90 group-hover:text-white'}`}>
                                 {item.label}
                             </span>
                             <span className="text-[10px] font-medium text-navy-400 opacity-0 transition-all duration-300 group-hover:-translate-y-1 group-hover:opacity-100 group-hover:text-gold-500 absolute -bottom-3">
@@ -82,7 +86,7 @@ export function Header() {
                         アプリをダウンロード
                     </Button>
                     <button
-                        className="md:hidden p-2 text-navy-900 focus:outline-none dark:text-white"
+                        className={`md:hidden p-2 focus:outline-none ${!isTranslucentHeader ? 'text-navy-900 dark:text-white' : 'text-white'}`}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >
