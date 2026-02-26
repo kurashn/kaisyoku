@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Menu, X, UtensilsCrossed, ChevronRight } from 'lucide-react';
+import { Logo } from '@/components/ui/Logo';
 
 export function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
 
@@ -14,13 +16,22 @@ export function Header() {
         setMounted(true);
     }, []);
 
-    // Lock body scroll when menu is open
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
+
         return () => {
             document.body.style.overflow = 'unset';
         };
@@ -33,13 +44,17 @@ export function Header() {
     ];
 
     return (
-        <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-xl shadow-sm transition-all dark:bg-navy-950/80">
-            <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                <Link href="/" className="flex items-center space-x-3 group relative z-50">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-main text-white transition-transform group-hover:scale-110">
-                        <UtensilsCrossed className="h-5 w-5" />
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 shadow-sm backdrop-blur-md dark:bg-navy-950/90' : 'bg-transparent'
+                }`}
+        >
+            <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+                {/* Logo */}
+                <Link href="/" className="flex items-center space-x-2 z-50 group">
+                    <div className="bg-main text-white p-1.5 rounded flex items-center justify-center transition-transform group-hover:scale-105">
+                        <Logo className="h-5 w-5" />
                     </div>
-                    <span className="font-serif text-xl font-bold tracking-wider text-navy-950 transition-colors group-hover:text-main dark:text-white">
+                    <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-navy-900 dark:text-white' : 'text-white'}`}>
                         Kaisyoku
                     </span>
                 </Link>

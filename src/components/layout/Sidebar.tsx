@@ -1,5 +1,6 @@
-import { BookOpen, ShieldCheck, Wrench } from "lucide-react";
+import { BookOpen, ShieldCheck, Wrench, Hash } from "lucide-react";
 import Link from "next/link";
+import { getCategories } from "@/lib/wordpress";
 
 export function RankingSidebar() {
     const ranks = [
@@ -47,12 +48,23 @@ export function RankingSidebar() {
     );
 }
 
-export function CategorySidebar() {
-    const knowledgeCategories = [
-        { name: "マナー・振る舞い", slug: "manners", count: 10, icon: BookOpen },
-        { name: "トラブル回避", slug: "trouble", count: 5, icon: ShieldCheck },
-        { name: "準備・ツール", slug: "tools", count: 4, icon: Wrench }
-    ];
+export async function CategorySidebar() {
+    const rawCategories = await getCategories();
+
+    // Map WP categories to include icons and fallback data
+    const categories = rawCategories.map((cat: any) => {
+        let icon = Hash;
+        if (cat.slug === 'manners') icon = BookOpen;
+        if (cat.slug === 'trouble') icon = ShieldCheck;
+        if (cat.slug === 'tools') icon = Wrench;
+
+        return {
+            name: cat.name,
+            slug: cat.slug,
+            count: cat.count || 0,
+            icon: icon
+        };
+    }).filter((cat: any) => cat.slug !== 'uncategorized'); // Hide uncategorized
 
     return (
         <div className="mt-8">
@@ -66,7 +78,7 @@ export function CategorySidebar() {
                 </div>
 
                 <div className="flex flex-col">
-                    {knowledgeCategories.map((cat, i) => (
+                    {categories.length > 0 ? categories.map((cat: any, i: number) => (
                         <Link key={i} href={`/category/${cat.slug}`} className="group flex items-center justify-between border-b border-dashed border-navy-800 py-3 text-sm font-medium text-navy-300 transition-all hover:border-gold-500 hover:text-gold-600 md:border-navy-50 md:text-navy-700 dark:border-navy-800 dark:text-navy-300">
                             <span className="flex items-center">
                                 <cat.icon className="mr-3 h-4 w-4 text-navy-300 transition-colors group-hover:text-gold-500" />
@@ -76,7 +88,9 @@ export function CategorySidebar() {
                                 {cat.count}
                             </span>
                         </Link>
-                    ))}
+                    )) : (
+                        <div className="py-4 text-sm text-center text-navy-400">カテゴリーがありません</div>
+                    )}
                 </div>
             </div>
         </div>

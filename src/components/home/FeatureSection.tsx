@@ -37,7 +37,7 @@ export function FeatureSection() {
                         <p className="text-navy-200 mb-8 leading-relaxed">
                             遠方からのゲストも多い東京駅周辺。新幹線の時間ギリギリまで楽しめて、かつ静かで、料理も一級品。そんな都合の良い店を、足で探して見つけました。
                         </p>
-                        <Link href="#" className="inline-flex items-center justify-center px-8 py-3 bg-transparent border border-white/30 text-white font-serif hover:bg-white hover:text-navy-900 transition-all duration-300">
+                        <Link href="/articles" className="inline-flex items-center justify-center px-8 py-3 bg-transparent border border-white/30 text-white font-serif hover:bg-white hover:text-navy-900 transition-all duration-300">
                             <span>記事を読む</span>
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>

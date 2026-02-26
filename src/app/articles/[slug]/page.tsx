@@ -1,23 +1,29 @@
-import { getArticleBySlug, articles } from '@/lib/articles';
+import { fetchArticleBySlug, articlesPromise, Article } from '@/lib/articles';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { draftMode } from 'next/headers';
 import { Button } from '@/components/ui/Button';
 import { MapPin, Calendar, ArrowLeft, Clock, CheckCircle, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { RankingSidebar, CategorySidebar } from '@/components/layout/Sidebar';
+import { Suspense } from 'react';
 
 // Correct type definition for Next.js 15
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
-    return articles.map((article) => ({
+    const articles = await articlesPromise();
+    return articles.map((article: Article) => ({
         slug: article.slug,
     }));
 }
 
 export default async function ArticlePage({ params }: { params: Params }) {
     const { slug } = await params;
-    const article = getArticleBySlug(slug);
+    const draft = await draftMode();
+    const isPreview = draft.isEnabled;
+
+    const article = await fetchArticleBySlug(slug, isPreview);
 
     if (!article) {
         notFound();
@@ -25,6 +31,15 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
     return (
         <div className="bg-gray-50 dark:bg-navy-950 min-h-screen font-sans">
+            {/* Preview Banner */}
+            {isPreview && (
+                <div className="fixed bottom-4 right-4 bg-navy-900 border border-gold-500 text-white p-4 rounded-xl z-50 shadow-2xl animate-fade-in-up">
+                    <p className="font-bold text-sm mb-1 text-gold-400">プレビューモード表示中</p>
+                    <p className="text-xs text-navy-300 mb-3">WordPressの未公開・下書き状態を確認しています。</p>
+                    <a href="/api/disable-draft" className="inline-block bg-white text-navy-900 text-xs font-bold px-4 py-2 rounded-full hover:bg-gold-50 transition-colors shadow-sm">プレビューを解除</a>
+                </div>
+            )}
+
             {/* Breadcrumbs */}
             <div className="bg-white border-b border-gray-100 py-3 dark:bg-navy-900 dark:border-navy-800">
                 <div className="container mx-auto px-4">
@@ -88,14 +103,6 @@ export default async function ArticlePage({ params }: { params: Params }) {
                         {/* Main Content */}
                         <div className="lg:col-span-8">
                             <div className="bg-white rounded-xl shadow-sm p-8 md:p-12 mb-12 dark:bg-navy-900 border border-gray-100 dark:border-navy-800">
-                                {/* Lead Text */}
-                                <div className="mb-12">
-                                    <p className="text-navy-800 font-medium leading-loose dark:text-navy-100">
-                                        重要な接待や会食で「お店選び」に失敗したくない幹事様必見。<br />
-                                        現地のリアルな騒音レベルから、個室の防音性、接客の質まで、Kaisyoku編集部が徹底的に調査しました。
-                                    </p>
-                                </div>
-
                                 {/* Article Body */}
                                 <div
                                     className="article-content prose prose-lg prose-navy max-w-none
@@ -121,18 +128,28 @@ export default async function ArticlePage({ params }: { params: Params }) {
                         {/* Sidebar */}
                         <div className="lg:col-span-4 space-y-8">
                             {/* Author/Supervisor Mock (New) */}
-                            <div className="rounded-lg bg-white p-6 shadow-sm border border-gray-100 dark:bg-navy-900 dark:border-navy-800">
-                                <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-navy-400">この記事の監修</h3>
-                                <div className="flex items-center gap-4">
-                                    <div className="h-12 w-12 rounded-full bg-navy-100 overflow-hidden">
-                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" alt="Editor" className="h-full w-full object-cover" />
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-navy-900 dark:text-white text-sm">Kaisyoku 編集部</p>
-                                        <p className="text-xs text-navy-500">接待リスク管理スペシャリスト</p>
+                            {article.author && (
+                                <div className="rounded-lg bg-white p-6 shadow-sm border border-gray-100 dark:bg-navy-900 dark:border-navy-800">
+                                    <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-navy-400">この記事の執筆者</h3>
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-12 w-12 rounded-full bg-navy-100 overflow-hidden relative">
+                                            {article.author.avatarUrl ? (
+                                                <Image src={article.author.avatarUrl} alt={article.author.name} fill className="object-cover" />
+                                            ) : (
+                                                <div className="flex h-full w-full items-center justify-center bg-navy-200 text-navy-500 font-bold dark:bg-navy-800 dark:text-navy-400">
+                                                    {article.author.name.charAt(0)}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-navy-900 dark:text-white text-sm">{article.author.name}</p>
+                                            {article.author.description && (
+                                                <p className="text-xs text-navy-500 line-clamp-2 mt-1">{article.author.description}</p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
                             {/* CTA Card */}
                             <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-navy-900 to-navy-800 p-8 text-white shadow-xl">
@@ -150,7 +167,9 @@ export default async function ArticlePage({ params }: { params: Params }) {
                             </div>
 
                             <RankingSidebar />
-                            <CategorySidebar />
+                            <Suspense fallback={<div className="mt-8 p-6 bg-white dark:bg-navy-900 rounded-lg animate-pulse h-48"></div>}>
+                                <CategorySidebar />
+                            </Suspense>
                         </div>
                     </div>
                 </div>

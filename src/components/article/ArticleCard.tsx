@@ -10,9 +10,13 @@ interface ArticleCardProps {
     imageUrl: string;
     location?: string;
     features?: string[];
+    author?: {
+        name: string;
+        avatarUrl?: string;
+    };
 }
 
-export function ArticleCard({ title, excerpt, slug, category, imageUrl, location, features }: ArticleCardProps) {
+export function ArticleCard({ title, excerpt, slug, category, imageUrl, location, features, author }: ArticleCardProps) {
     return (
         <Link href={`/articles/${slug}`} className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-900/5 dark:bg-navy-900">
             <div className="relative aspect-video w-full overflow-hidden bg-navy-100 dark:bg-navy-800">
@@ -55,6 +59,24 @@ export function ArticleCard({ title, excerpt, slug, category, imageUrl, location
                         </div>
                     )}
                 </div>
+
+                {/* Author Info */}
+                {author && (
+                    <div className="mt-4 flex items-center gap-2 border-t border-navy-50 pt-3 dark:border-navy-800">
+                        <div className="relative h-6 w-6 overflow-hidden rounded-full bg-navy-100 dark:bg-navy-800">
+                            {author.avatarUrl ? (
+                                <Image src={author.avatarUrl} alt={author.name} fill className="object-cover" />
+                            ) : (
+                                <div className="flex h-full w-full items-center justify-center text-[10px] font-bold text-navy-500 dark:text-navy-400">
+                                    {author.name.charAt(0)}
+                                </div>
+                            )}
+                        </div>
+                        <span className="text-xs font-medium text-navy-600 dark:text-navy-300">
+                            {author.name}
+                        </span>
+                    </div>
+                )}
             </div>
         </Link>
     );

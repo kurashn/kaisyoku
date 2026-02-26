@@ -70,14 +70,33 @@ body {
 }
 
 /* Standard List Styling */
-.article-content ul:not([class]) {
+.article-content ul,
+.article-content ol {
   @apply bg-slate-50 p-6 rounded-lg my-8 border border-slate-100 ml-0;
 }
 
-.dark .article-content ul:not([class]) {
+.dark .article-content ul,
+.dark .article-content ol {
   @apply bg-slate-800 border-slate-700;
 }
 
-.article-content ul:not([class]) li {
+.article-content ul li {
   @apply list-disc list-inside marker:text-[#c5a059] pl-2 mb-2;
+}
+
+.article-content ol li {
+  @apply list-decimal list-inside marker:text-[#c5a059] pl-2 mb-2;
+}
+
+/* Paragraph Styling */
+.article-content p {
+  @apply leading-[2] mb-6 text-base;
+}
+
+.article-content strong {
+  @apply text-navy-950 font-bold;
+}
+
+.dark .article-content strong {
+  @apply text-white;
 }

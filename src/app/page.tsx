@@ -3,13 +3,15 @@ import { ArticleCard } from "@/components/article/ArticleCard";
 import { ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { Ban } from "lucide-react";
-import { articles } from "@/lib/articles";
+import { articlesPromise, Article } from "@/lib/articles";
 import { RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
+import { Suspense } from "react";
 
 import { TrustSection } from "@/components/home/TrustSection";
 import { FeatureSection } from "@/components/home/FeatureSection";
 
-export default function Home() {
+export default async function Home() {
+  const articles = await articlesPromise();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,7 +22,7 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 text-center">
           <div className="animate-fade-in-up inline-block mb-6 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-navy-100 backdrop-blur-md">
-            <span className="mr-2 text-main">●</span> 失敗できない幹事様のためのサイト
+            <span className="mr-2 text-main">●</span> 会食 × リスク管理の専門メディア
           </div>
 
           <h1 className="animate-fade-in-up delay-100 mb-8 font-serif text-4xl font-bold tracking-tight leading-tight md:text-5xl lg:text-6xl">
@@ -33,11 +35,15 @@ export default function Home() {
           </h1>
 
           <p className="animate-fade-in-up delay-200 mx-auto mb-12 max-w-2xl text-lg text-navy-100 md:text-xl leading-relaxed font-medium">
-            「静かさ」も「細かな要望」も、<br className="md:hidden" />あなたの基準で選べる。<br />
-            ビジネスの成否を分ける<br className="md:hidden" />
-            <span className="text-white border-b border-main/50 pb-1">「完全個室・静音保証」</span>の厳選リスト。<br className="md:hidden" />
+            アレルギー対応、個室の防音性、支払い方法まで。<br />
+            幹事が<span className="text-white border-b border-main/50 pb-1">"本当に知りたい情報"</span>だけを、徹底的に。
           </p>
 
+          <div className="animate-fade-in-up delay-300 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base font-bold shadow-lg shadow-main/20 hover:scale-105 transition-transform duration-300 rounded-full">
+              今すぐアプリをダウンロード
+            </Button>
+          </div>
 
         </div>
       </section >
@@ -96,7 +102,7 @@ export default function Home() {
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2">
-                {articles.map((article) => (
+                {articles.map((article: Article) => (
                   <ArticleCard key={article.slug} {...article} />
                 ))}
               </div>
@@ -112,7 +118,9 @@ export default function Home() {
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-8">
               <RankingSidebar />
-              <CategorySidebar />
+              <Suspense fallback={<div className="mt-8 p-6 bg-white dark:bg-navy-900 rounded-lg animate-pulse h-48"></div>}>
+                <CategorySidebar />
+              </Suspense>
             </aside>
 
           </div>

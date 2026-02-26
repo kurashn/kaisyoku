@@ -1,4 +1,4 @@
-import { getArticlesByCategorySlug, getAllCategorySlugs } from '@/lib/articles';
+import { fetchArticlesByCategorySlug, getAllCategorySlugs, Article } from '@/lib/articles';
 import { notFound } from 'next/navigation';
 import { ArticleCard } from '@/components/article/ArticleCard';
 import { ArrowLeft } from 'lucide-react';
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 export default async function CategoryPage({ params }: { params: Params }) {
     const { slug } = await params;
-    const articles = getArticlesByCategorySlug(slug);
+    const articles = await fetchArticlesByCategorySlug(slug);
 
     if (!articles || articles.length === 0) {
         notFound();
@@ -38,7 +38,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-3">
-                    {articles.map((article) => (
+                    {articles.map((article: Article) => (
                         <ArticleCard key={article.slug} {...article} />
                     ))}
                 </div>

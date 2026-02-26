@@ -1,10 +1,13 @@
-import { articles } from "@/lib/articles";
+import { articlesPromise, Article } from "@/lib/articles";
 import { ArticleCard } from "@/components/article/ArticleCard";
 import { RankingSidebar, CategorySidebar } from "@/components/layout/Sidebar";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
+import { Suspense } from "react";
 
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+    const articles = await articlesPromise();
+
     return (
         <div className="bg-slate-50 min-h-screen pb-20 dark:bg-navy-950">
             {/* Header / Breadcrumb */}
@@ -36,8 +39,8 @@ export default function ArticlesPage() {
                             </p>
                         </div>
 
-                        <div className="grid gap-6 sm:grid-cols-2">
-                            {articles.map((article) => (
+                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+                            {articles.map((article: Article) => (
                                 <ArticleCard key={article.slug} {...article} />
                             ))}
                         </div>
@@ -53,7 +56,9 @@ export default function ArticlesPage() {
                     {/* Sidebar */}
                     <aside className="lg:col-span-4 space-y-8">
                         <RankingSidebar />
-                        <CategorySidebar />
+                        <Suspense fallback={<div className="mt-8 p-6 bg-white dark:bg-navy-900 rounded-lg animate-pulse h-48"></div>}>
+                            <CategorySidebar />
+                        </Suspense>
                     </aside>
                 </div>
             </div>
