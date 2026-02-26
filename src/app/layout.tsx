@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     title: "Kaisyoku | 会食 × リスク管理の専門メディア",
     description: 'アレルギー対応、個室の防音性、支払い方法まで。幹事が本当に知りたい情報だけを、徹底的に。',
   },
+  // TODO: 本番公開時に index: true, follow: true に変更する
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
