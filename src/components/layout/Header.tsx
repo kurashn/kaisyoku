@@ -47,7 +47,7 @@ export function Header() {
 
     const navItems = [
         { label: '記事一覧', href: '/articles', sub: 'Articles' },
-        { label: '会食マナー', href: '/category/manners', sub: 'Manners' },
+        { label: '会食マナー', href: '/category/kaishoku-manner', sub: 'Manners' },
         { label: '掲載基準・アレルギー', href: '/about', sub: 'Standard & Allergy' },
     ];
 
