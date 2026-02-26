@@ -14,7 +14,11 @@ export function Header() {
     const [mounted, setMounted] = useState(false);
     const pathname = usePathname();
     const isTopPage = pathname === '/';
+    // isTranslucentHeader is true ONLY on the top page before scrolling
     const isTranslucentHeader = isTopPage && !isScrolled;
+
+    // Always use solid background on lower pages, or on top page when scrolled
+    const useSolidBackground = !isTopPage || isScrolled;
 
     useEffect(() => {
         setMounted(true);
@@ -49,7 +53,7 @@ export function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 shadow-sm backdrop-blur-md dark:bg-navy-950/90' : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${useSolidBackground ? 'bg-white/95 shadow-sm backdrop-blur-md dark:bg-navy-950/95' : 'bg-transparent'
                 }`}
         >
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">

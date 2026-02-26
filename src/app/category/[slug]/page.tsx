@@ -24,7 +24,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
     const categoryName = articles[0].category;
 
     return (
-        <div className="min-h-screen bg-navy-50 py-12 dark:bg-navy-900">
+        <div className="min-h-screen bg-navy-50 pt-24 pb-12 dark:bg-navy-900">
             <div className="container mx-auto px-4">
                 <div className="mb-8">
                     <Link href="/" className="inline-flex items-center text-sm text-navy-600 hover:text-navy-900 dark:text-navy-400 dark:hover:text-white mb-4">

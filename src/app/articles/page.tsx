@@ -9,7 +9,7 @@ export default async function ArticlesPage() {
     const articles = await articlesPromise();
 
     return (
-        <div className="bg-slate-50 min-h-screen pb-20 dark:bg-navy-950">
+        <div className="bg-slate-50 min-h-screen pt-20 pb-20 dark:bg-navy-950">
             {/* Header / Breadcrumb */}
             <div className="bg-white border-b border-navy-100 dark:bg-navy-900 dark:border-navy-800">
                 <div className="container mx-auto px-4 py-4">

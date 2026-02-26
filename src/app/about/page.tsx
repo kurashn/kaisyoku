@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 
 export default function AboutPage() {
     return (
-        <div className="bg-white dark:bg-navy-950">
+        <div className="bg-white dark:bg-navy-950 pt-20">
 
             {/* Hero Section */}
             <section className="bg-navy-950 py-24 text-center text-white relative overflow-hidden">
