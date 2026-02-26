@@ -101,5 +101,5 @@ export async function fetchArticlesByCategorySlug(categorySlug: string): Promise
 
 export function getAllCategorySlugs() {
   // This ideally should be fetched from WP as well, but for now we can infer from fallbacks or manual list
-  return ["area", "manners", "special", "tools", "scene", "trouble", "uncategorized"];
+  return ["area", "kaishoku-manner", "special", "tools", "scene", "trouble", "uncategorized"];
 }
