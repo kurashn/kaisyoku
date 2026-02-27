@@ -10,14 +10,17 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-40"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/50 to-navy-950/80"></div>
                 <div className="relative z-10 container mx-auto px-4">
-                    <h1 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-relaxed md:leading-[1.5]">
+                    <h1 className="text-2xl md:text-5xl font-serif font-bold mb-6 leading-relaxed md:leading-[1.5]">
                         失敗できない幹事様へ。<br />
                         私たちが約束する「3つの安心」
                     </h1>
-                    <p className="text-navy-200 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Kaisyokuは、単なるグルメサイトではありません。<br />
-                        ビジネスの成功を裏で支える「リスク管理ツール」です。<br />
-                        私たちが厳守する掲載基準と、アレルギー対策についてご説明します。
+                    <p className="text-navy-200 mx-auto text-lg leading-relaxed">
+                        Kaisyokuは、<br className="md:hidden" />
+                        単なるグルメサイトではありません。<br />
+                        ビジネスの成功を裏で支える<br className="md:hidden" />
+                        「リスク管理ツール」です。<br />
+                        私たちが厳守する掲載基準と、<br className="md:hidden" />
+                        アレルギー対策についてご説明します。
                     </p>
                 </div>
             </section>
@@ -26,7 +29,7 @@ export default function AboutPage() {
             <section className="py-20 container mx-auto px-4 max-w-4xl">
                 <div className="text-center mb-12">
                     <span className="text-main font-bold tracking-widest text-sm uppercase">PHILOSOPHY</span>
-                    <h2 className="text-3xl font-serif font-bold mt-2 text-navy-950 dark:text-white">なぜ「会食」に特化するのか</h2>
+                    <h2 className="text-3xl font-serif font-bold mt-2 text-navy-950 dark:text-white">なぜ「会食」に<br className="md:hidden" />特化するのか</h2>
                 </div>
                 <div className="mx-auto max-w-3xl text-lg text-navy-700 dark:text-navy-200">
                     <p className="mb-6 leading-loose">
@@ -56,7 +59,7 @@ export default function AboutPage() {
                             Kaisyokuの掲載基準
                         </h2>
                         <p className="text-navy-600 mt-4 dark:text-navy-300">
-                            以下の条件を満たさないお店は、一切掲載いたしません。
+                            以下の条件を満たさないお店は、<br className="md:hidden" />一切掲載いたしません。
                         </p>
                     </div>
 
@@ -77,7 +80,7 @@ export default function AboutPage() {
                             {
                                 title: "接客のプロ意識",
                                 icon: HeartHandshake,
-                                image: "https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&q=80&w=800",
+                                image: "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&q=80&w=800",
                                 desc: "会話の間を読んだ配膳、上座・下座の理解、領収書のスマートな受け渡しなど、接待マナーを熟知しているか。"
                             }
                         ].map((item, i) => (
@@ -171,7 +174,7 @@ export default function AboutPage() {
             {/* CTA */}
             <section className="bg-main py-16 text-white text-center">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-2xl font-bold mb-6">リスクのない会食を、今すぐ手に入れる</h2>
+                    <h2 className="text-2xl font-bold mb-6">リスクのない会食を、<br className="md:hidden" />今すぐ手に入れる</h2>
                     <Button size="lg" className="bg-white text-main hover:bg-navy-50 font-bold px-8 shadow-xl">
                         アプリを無料ダウンロード
                     </Button>
