@@ -35,14 +35,6 @@
   /* Navy-900 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    /* Navy-950 */
-    --foreground: #f8fafc;
-    /* Slate-50 */
-  }
-}
 
 body {
   background: var(--background);
@@ -55,9 +47,7 @@ body {
   @apply text-2xl mt-16 mb-8 py-4 px-6 bg-slate-50 border-l-4 border-[#c5a059] rounded-r-lg text-slate-900 font-bold font-serif shadow-sm;
 }
 
-.dark .article-content h2 {
-  @apply bg-slate-800 text-white;
-}
+
 
 .article-content h3 {
   @apply text-xl mt-12 mb-6 pl-5 relative text-slate-800 font-bold;
@@ -68,13 +58,7 @@ body {
   @apply absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4/6 bg-[#c5a059] rounded-sm;
 }
 
-.dark .article-content h3 {
-  @apply text-white;
-}
 
-.dark .article-content h3::before {
-  @apply bg-[#c5a059];
-}
 
 /* Standard List Styling */
 .article-content ul,
@@ -82,10 +66,7 @@ body {
   @apply bg-slate-50 p-6 rounded-lg my-8 border border-slate-100 ml-0;
 }
 
-.dark .article-content ul,
-.dark .article-content ol {
-  @apply bg-slate-800 border-slate-700;
-}
+
 
 .article-content ul li {
   @apply list-disc list-inside marker:text-[#c5a059] pl-2 mb-2;
@@ -102,8 +83,4 @@ body {
 
 .article-content strong {
   @apply text-navy-950 font-bold;
-}
-
-.dark .article-content strong {
-  @apply text-white;
 }

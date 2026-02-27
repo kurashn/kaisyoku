@@ -1,67 +1,67 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Serif_JP } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { StickyCTA } from "@/components/layout/StickyCTA";
+import type { Metadata } from"next";
+import { Geist, Geist_Mono, Noto_Serif_JP } from"next/font/google";
+import"./globals.css";
+import { Header } from"@/components/layout/Header";
+import { Footer } from"@/components/layout/Footer";
+import { StickyCTA } from"@/components/layout/StickyCTA";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+ variable:"--font-geist-sans",
+ subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+ variable:"--font-geist-mono",
+ subsets: ["latin"],
 });
 
 const notoSerif = Noto_Serif_JP({
-  variable: "--font-noto-serif",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+ variable:"--font-noto-serif",
+ subsets: ["latin"],
+ weight: ["400","700"],
 });
 
 export const metadata: Metadata = {
-  title: "Kaisyoku | 失敗しないビジネス会食のためのリスク管理メディア",
-  description: "会食の失敗を恐れる幹事様へ。接待・会食に特化した静かな個室、アレルギー対応の店選びをサポート。アプリで予約とリスク管理を完璧に。",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://kaisyoku.com'),
-  openGraph: {
-    title: "Kaisyoku | 会食 × リスク管理の専門メディア",
-    description: 'アレルギー対応、個室の防音性、支払い方法まで。幹事が本当に知りたい情報だけを、徹底的に。',
-    siteName: "Kaisyoku",
-    locale: "ja_JP",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kaisyoku | 会食 × リスク管理の専門メディア",
-    description: 'アレルギー対応、個室の防音性、支払い方法まで。幹事が本当に知りたい情報だけを、徹底的に。',
-  },
-  // TODO: 本番公開時に index: true, follow: true に変更する
-  robots: {
-    index: false,
-    follow: false,
-  },
+ title:"Kaisyoku | 失敗しないビジネス会食のためのリスク管理メディア",
+ description:"会食の失敗を恐れる幹事様へ。接待・会食に特化した静かな個室、アレルギー対応の店選びをサポート。アプリで予約とリスク管理を完璧に。",
+ metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://kaisyoku.com'),
+ openGraph: {
+ title:"Kaisyoku | 会食 × リスク管理の専門メディア",
+ description: 'アレルギー対応、個室の防音性、支払い方法まで。幹事が本当に知りたい情報だけを、徹底的に。',
+ siteName:"Kaisyoku",
+ locale:"ja_JP",
+ type:"website",
+ },
+ twitter: {
+ card:"summary_large_image",
+ title:"Kaisyoku | 会食 × リスク管理の専門メディア",
+ description: 'アレルギー対応、個室の防音性、支払い方法まで。幹事が本当に知りたい情報だけを、徹底的に。',
+ },
+ // TODO: 本番公開時に index: true, follow: true に変更する
+ robots: {
+ index: false,
+ follow: false,
+ },
 };
 
 export default function RootLayout({
-  children,
+ children,
 }: Readonly<{
-  children: React.ReactNode;
+ children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} antialiased min-h-screen flex flex-col font-sans text-navy-900 dark:text-white bg-white dark:bg-navy-950`}
-      >
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <StickyCTA />
-      </body>
-    </html>
-  );
+ return (
+ <html lang="ja">
+ <body
+ className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} antialiased min-h-screen flex flex-col font-sans text-navy-900 bg-white`}
+ >
+ <Header />
+ <main className="flex-grow">
+ {children}
+ </main>
+ <Footer />
+ <StickyCTA />
+ </body>
+ </html>
+ );
 }
 
