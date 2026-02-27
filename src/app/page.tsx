@@ -34,9 +34,9 @@ export default async function Home() {
             しない。
           </h1>
 
-          <p className="animate-fade-in-up delay-200 mx-auto mb-12 max-w-2xl text-lg text-navy-100 md:text-xl leading-relaxed font-medium">
-            アレルギー対応、個室の防音性、支払い方法まで。<br />
-            幹事が<span className="text-white border-b border-main/50 pb-1">"本当に知りたい情報"</span>だけを、徹底的に。
+          <p className="animate-fade-in-up delay-200 mx-auto mb-12 max-w-2xl text-[15px] sm:text-lg text-navy-100 md:text-xl leading-relaxed font-medium">
+            アレルギー対応、個室の防音性、<span className="inline-block">支払い方法まで。</span><br />
+            幹事が<span className="text-white border-b border-main/50 pb-1">"本当に知りたい情報"</span>だけを、<span className="inline-block">徹底的に。</span>
           </p>
 
           <div className="animate-fade-in-up delay-300 flex flex-col items-center justify-center gap-4 sm:flex-row">
